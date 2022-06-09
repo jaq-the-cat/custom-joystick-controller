@@ -10,7 +10,7 @@ void setup(){
 int c = 0;
 c_event ev;
 
-#define BYTES(x) ((byte*) &x, sizeof(x))
+#define BYTES(x) ((byte*) &x)
 
 void loop(){
   c_event ev;
@@ -27,6 +27,10 @@ void loop(){
   else if (BTWN(c, 125, 149))
     ev = EVENT(AXS_THROTTLE, AXIS(0, 200));
 
-  Serial.write(BYTES(ev));
+  c_event c_ev = *(c_event*)BYTES(ev);
+  Serial.print(c_ev.type);
+  Serial.print(" \n\n");
+
+  delay(100);
 }
 
