@@ -20,7 +20,8 @@ void loop(){
   int16_t yaw = analogRead(P_YAW);
   if (yaw >= 668)
     yaw = 670;
-  ev = EVENT(AXIS(yaw, 0), AXS_YAW);
+  //ev = EVENT(AXIS(yaw, 0), AXS_YAW);
+  ev = EVENT(DOWN, BTN_BOMB_BAY);
 
   Serial.write(BYTES(ev.data), sizeof(c_data));
   Serial.write(BYTES(ev.type), sizeof(byte));
