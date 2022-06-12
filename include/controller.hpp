@@ -4,7 +4,7 @@
 #define false 0x00
 
 #define EVENT(data, type) ((c_event) {data, type})
-#define AXIS(x, y) ((c_data) {.axis={x, y}})
+#define AXIS(x, y) ((c_data) {.axis={(int16_t) x, (int16_t) y}})
 #define UP         ((c_data) {.is_down=false})
 #define DOWN       ((c_data) {.is_down=true})
 
